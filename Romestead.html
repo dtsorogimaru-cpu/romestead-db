@@ -552,7 +552,6 @@ footer {
     <a href="#automation">⚙️ Auto</a>
     <a href="#coop">🤝 Co-op</a>
     <a href="#tips">💡 Tips</a>
-    <a href="#database" style="color:var(--gold2);">🗃️ Database</a>
   </nav>
 </div>
 
@@ -919,108 +918,178 @@ footer {
 <div class="section" id="bosses">
   <div class="sec-header">
     <div class="sec-icon" style="background:rgba(192,57,43,0.15);">💀</div>
-    <div><h2>4 Boss — รายละเอียดครบทุกตัว</h2><p>วิธีหา · การโจมตี · Drop · กลยุทธ์</p></div>
+    <div><h2>7 Boss — Drop Table ครบทุกตัว</h2><p>HP จริง · Co-op Scaling · Drop Rate · กลยุทธ์</p></div>
   </div>
   <div class="hbox red">
-    <strong>เส้นทาง Boss ที่มีประสิทธิภาพ:</strong> Guardian of Minerva (NW) → เข้า Desert → Pyzifax → Virgil's Poem Quest → Cyclops → Volcanic → Great Phoenix of Arabia
+    <strong>เส้นทาง Boss ที่แนะนำ:</strong> Guardian of Minerva → Pyzifax → Cyclops → Medusa → Great Phoenix of Arabia → Talos Prototype → Di Inferi<br>
+    <span style="font-size:12px;">ทุก Boss มี HP scaling ตามจำนวน Co-op Player · HP Co-op = Base + (n extra players × bonus/player)</span>
   </div>
 
-  <!-- BOSS 1 -->
+  <!-- ─── BOSS OVERVIEW TABLE ─── -->
+  <p style="color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px;">📊 ตารางสรุปทุก Boss</p>
+  <table class="tbl" style="margin-bottom:24px;">
+    <thead>
+      <tr>
+        <th>#</th><th>Boss</th><th>Location</th><th>Base HP</th><th>+HP/Player</th><th>4P HP</th><th>Drops</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span style="color:#e8b84b;">🦅 Guardian of Minerva</span></td>
+        <td>Guardian of Minerva's Nest (NW)</td>
+        <td style="color:var(--green2);font-weight:700;">225</td>
+        <td>+70</td>
+        <td>435</td>
+        <td>11 items</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><span style="color:#d4957a;">🐐 Pyzifax</span></td>
+        <td>Pyzifax Compound (Desert)</td>
+        <td style="color:var(--orange2);font-weight:700;">500</td>
+        <td>+80</td>
+        <td>740</td>
+        <td>38 items</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><span style="color:var(--blue2);">👁️ Cyclops</span></td>
+        <td>Temple of the Eye (Desert)</td>
+        <td style="color:var(--orange2);font-weight:700;">500</td>
+        <td>+33</td>
+        <td>599</td>
+        <td>12 items</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><span style="color:var(--purple2);">🐍 Medusa</span></td>
+        <td>Medusa's Gallery of Souls</td>
+        <td style="color:var(--orange2);font-weight:700;">400</td>
+        <td>+33</td>
+        <td>499</td>
+        <td>1 item</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><span style="color:var(--red2);">🔥 Great Phoenix of Arabia</span></td>
+        <td>Scorched Shrine (Volcanic South)</td>
+        <td style="color:var(--red2);font-weight:700;">1,200</td>
+        <td>+100</td>
+        <td>1,500</td>
+        <td>35 items</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><span style="color:var(--muted2);">⚙️ Talos Prototype</span></td>
+        <td>Temple of Vulcan</td>
+        <td style="color:var(--red2);font-weight:700;">1,800</td>
+        <td>+33</td>
+        <td>1,899</td>
+        <td>7 items</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><span style="color:var(--muted2);">💀 Di Inferi</span></td>
+        <td>The Temple of Orcus</td>
+        <td style="color:var(--red2);font-weight:700;">700</td>
+        <td>—</td>
+        <td>—</td>
+        <td>1 item</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ─── BOSS 1: GUARDIAN OF MINERVA ─── -->
   <div class="boss-card">
     <div class="boss-header">
       <div class="boss-icon">🦅</div>
       <div class="boss-title">
         <h3>Boss #1 — Guardian of Minerva</h3>
-        <p>📍 มุมบนซ้าย (NW) ของแผนที่ · Biome: Plains · ตัวแรกที่ต้องฆ่า</p>
+        <p>📍 Guardian of Minerva's Nest · มุม NW ของแผนที่ · Biome: Plains</p>
       </div>
       <div class="boss-num">
-        <div class="hp">~225 HP</div>
-        <div class="hp-lbl">HP (ประมาณ)</div>
+        <div class="hp">225 HP</div>
+        <div class="hp-lbl">1P · +70/player</div>
       </div>
     </div>
     <div class="boss-body">
       <div class="hbox green" style="margin-bottom:14px;">
-        <strong>วิธีเปิดการต่อสู้:</strong> หลังจบ Tutorial Quest แผนที่จะ mark ไอคอน Owl ใหญ่ — ไปที่นั่น แล้ว<strong>ทุบไข่ 3 ฟอง</strong> รอบๆ รัง → Boss Spawn
+        <strong>วิธีเปิด:</strong> ทำ Tutorial Quest จนแผนที่ mark ไอคอน Owl → ไปที่รัง → <strong>ทุบไข่ 3 ฟอง</strong> → Boss Spawn
       </div>
       <div class="boss-grid">
         <div class="boss-col">
-          <h4>⚔️ Pattern การโจมตี</h4>
+          <h4>⚔️ Pattern</h4>
           <ul>
-            <li>จิกระยะใกล้ (Peck)</li>
-            <li>บินแล้วพุ่งลงทับ (Flying Slam)</li>
-            <li>Phase 2 (&lt;25% HP): พายุสายฟ้า! พื้นมีไฟฟ้า, พุ่งจากฟ้า</li>
-            <li>ก่อน Explosion Attack — จะก้มหัว (ดู Tell!)</li>
+            <li>Peck ระยะใกล้</li>
+            <li>Flying Slam พุ่งลงทับ</li>
+            <li>Phase 2 (&lt;25% HP): พายุสายฟ้า + พุ่งจากฟ้า</li>
+            <li>ก้มหัวก่อน Explosion (อ่าน tell!)</li>
           </ul>
         </div>
         <div class="boss-col">
           <h4>🎯 กลยุทธ์</h4>
           <ul>
-            <li>ใช้ Scroll of Novice / Bow ระยะไกล</li>
+            <li>Scroll / Bow Charged Shot ระยะไกล</li>
             <li>ล่อบนถนนหิน → เดินเร็วขึ้น</li>
-            <li>Dodge ทะลุการโจมตี ไม่ใช่หนี</li>
-            <li>เตรียม 100–150 ลูกธนูถ้าใช้ Bow</li>
-            <li>Bow Charged Shot = DPS สูงมาก</li>
+            <li>เตรียมลูกธนู 100–150 ลูก</li>
+            <li>HP Co-op: 1P=225 / 2P=295 / 3P=365 / 4P=435</li>
           </ul>
         </div>
       </div>
-      <div style="margin-top:14px;">
-        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">📦 Gear ที่ต้องเตรียม</h4>
-        <div class="badge-row">
-          <span class="biome-chip" style="background:rgba(39,174,96,0.15);color:var(--green2);">🛡️ เกราะหนังครบชุด</span>
-          <span class="biome-chip" style="background:rgba(39,174,96,0.15);color:var(--green2);">🏹 Crossbow/Bow</span>
-          <span class="biome-chip" style="background:rgba(39,174,96,0.15);color:var(--green2);">🛡️ Shield</span>
-          <span class="biome-chip" style="background:rgba(39,174,96,0.15);color:var(--green2);">🍞 อาหาร Buff</span>
-          <span class="biome-chip" style="background:rgba(39,174,96,0.15);color:var(--green2);">💉 Health Potion</span>
-        </div>
+
+      <!-- DROP TABLE -->
+      <div style="margin-top:16px;">
+        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">📦 Drop Table ครบ (11 items)</h4>
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>จำนวน</th><th>Chance</th><th>ประเภท</th></tr></thead>
+          <tbody>
+            <tr><td>👁️ Guardian's Eye</td><td>×1</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🪶 Guardians Feather</td><td>×2–3</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🦅 Guardians Talon</td><td>×1–2</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🟤 Copper Bar</td><td>×3–5</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Quadrans</td><td>×10–70</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Denarius</td><td>×1–2</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🎰 Loot Slot 1 — เลือก 1 จาก 3 (33.3% each)</td></tr>
+            <tr><td>👕 Feathered Armor</td><td>×1</td><td style="color:var(--orange2);">33.3%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td>🎩 Feathered Hood</td><td>×1</td><td style="color:var(--orange2);">33.3%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td>👢 Feathered Boots</td><td>×1</td><td style="color:var(--orange2);">33.3%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🎰 Loot Slot 2 — เลือก 1</td></tr>
+            <tr><td>🪶 Pretty Feather</td><td>×1</td><td style="color:var(--red2);">40%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td>🏹 Poisoned Arrow</td><td>×12–18</td><td style="color:var(--green2);">60%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+          </tbody>
+        </table>
       </div>
-      <div style="margin-top:14px;">
-        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--purple2);text-transform:uppercase;margin-bottom:8px;">💎 สิ่งที่ได้รับ (Drop)</h4>
-        <div class="badge-row">
-          <span class="drop-pill">⚫ Coal</span>
-          <span class="drop-pill">🟤 Copper Bar</span>
-          <span class="drop-pill">🏹 Poisoned Arrow</span>
-          <span class="drop-pill">💰 Denarius</span>
-          <span class="drop-pill">💰 Quadrans</span>
-          <span class="drop-pill">🪶 Guardian's Feather</span>
-          <span class="drop-pill">🦅 Guardian's Talon</span>
-          <span class="drop-pill drop-rare">👁️ Guardian's Eye ★</span>
-          <span class="drop-pill drop-rare">🎩 Feathered Hood (Random)</span>
-          <span class="drop-pill drop-rare">👕 Feathered Armor (Random)</span>
-          <span class="drop-pill drop-rare">👢 Feathered Boots (Random)</span>
-        </div>
-      </div>
-      <div class="hbox" style="margin-top:14px;margin-bottom:0;">
-        <strong>🔓 Unlock หลังฆ่า:</strong> Carpenter's Workshop · Blacksmith · Altar Lv.2 (Fast Travel!) · Material Storage Lv.2 · Empty House Lv.2 · Feathered Armor Set
+      <div class="hbox" style="margin-top:12px;margin-bottom:0;">
+        <strong>🔓 Unlock หลังฆ่า:</strong> Carpenter's Workshop · Blacksmith · Altar Lv.2 (Fast Travel!) · Material Storage Lv.2 · Feathered Armor Set
       </div>
     </div>
   </div>
 
-  <!-- BOSS 2 -->
+  <!-- ─── BOSS 2: PYZIFAX ─── -->
   <div class="boss-card">
     <div class="boss-header">
       <div class="boss-icon">🐐</div>
       <div class="boss-title">
-        <h3>Boss #2 — Pyzifax (Satyr)</h3>
-        <p>📍 Desert Biome · Compound Square (กำแพงล้อมรอบ) · ดันเจี้ยนตรงกลาง</p>
+        <h3>Boss #2 — Pyzifax</h3>
+        <p>📍 Pyzifax Compound · Desert Biome · Dungeon กลาง Compound สี่เหลี่ยม</p>
       </div>
       <div class="boss-num">
-        <div class="hp">Medium</div>
-        <div class="hp-lbl">HP Level</div>
+        <div class="hp">500 HP</div>
+        <div class="hp-lbl">1P · +80/player</div>
       </div>
     </div>
     <div class="boss-body">
       <div class="hbox green" style="margin-bottom:14px;">
-        <strong>วิธีเปิดการต่อสู้:</strong> ใน Desert หา Compound สี่เหลี่ยมล้อมกำแพง → เข้าไปใน Dungeon ตรงกลาง → เดินไปถึงห้อง Arena → <strong>Interact กับ Red Box</strong> → Boss Spawn
+        <strong>วิธีเปิด:</strong> หา Compound สี่เหลี่ยมล้อมกำแพงใน Desert → เข้า Dungeon ตรงกลาง → เดินถึง Arena → <strong>Interact กับ Red Box</strong>
       </div>
       <div class="boss-grid">
         <div class="boss-col">
-          <h4>⚔️ Pattern การโจมตี</h4>
+          <h4>⚔️ Pattern</h4>
           <ul>
-            <li>กระโดดไปมารอบห้อง (Mobile)</li>
-            <li>เรียก Minion มาช่วย</li>
-            <li>ขว้างหินใส่</li>
-            <li>Spin Attack — เร็วขึ้น, HP หายเร็ว</li>
-            <li>Phase 2: ขึ้น Ledge + Bullet Hell!</li>
+            <li>กระโดดเร็วรอบห้อง + เรียก Minion</li>
+            <li>ขว้างหิน · Spin Attack เร็วมาก</li>
+            <li>Phase 2: ขึ้น Ledge + Bullet Hell</li>
             <li>Phase 3: กลับลง + ทุกอย่างเร็วขึ้น</li>
           </ul>
         </div>
@@ -1028,144 +1097,296 @@ footer {
           <h4>🎯 กลยุทธ์</h4>
           <ul>
             <li>อย่าโลภ — โจมตีแล้วถอยทันที</li>
-            <li>Phase 2 Bullet Hell — หลบได้แต่ตอนจบยากมาก เก็บ HP ไว้รับ 2 ลูก</li>
-            <li>Dodge Roll ผ่านการโจมตีเสมอ</li>
+            <li>Phase 2 ท้าย Bullet Hell: เก็บ HP รับ 2 ลูก</li>
             <li>กำจัด Minion ก่อนโฟกัส Boss</li>
-            <li>Logistics Tent drop จากตัวนี้!</li>
+            <li>HP Co-op: 1P=500 / 2P=580 / 3P=660 / 4P=740</li>
           </ul>
         </div>
       </div>
-      <div style="margin-top:14px;">
-        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--purple2);text-transform:uppercase;margin-bottom:8px;">💎 สิ่งที่ได้รับ (Drop)</h4>
-        <div class="badge-row">
-          <span class="drop-pill">🏴 Cape of Pyzifax</span>
-          <span class="drop-pill">💎 Sapphire</span>
-          <span class="drop-pill">🟫 Tin Bar</span>
-          <span class="drop-pill">🍇 Grapes</span>
-          <span class="drop-pill">🍷 Wine</span>
-          <span class="drop-pill">💰 Denarius/Quadrans</span>
-          <span class="drop-pill drop-rare">📜 Assassin's Scroll</span>
-          <span class="drop-pill drop-rare">🥇 Fools' Gold</span>
-          <span class="drop-pill drop-rare">🧤 Gardner's Gloves</span>
-          <span class="drop-pill drop-rare">⚔️ Locusta Legatus</span>
-          <span class="drop-pill drop-rare">🧥 Physician's Cloak</span>
-          <span class="drop-pill drop-rare">📜 Scroll of Vulcan</span>
-          <span class="drop-pill drop-rare">🎪 Logistics Tent ★</span>
-        </div>
+
+      <div style="margin-top:16px;">
+        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">📦 Drop Table ครบ (38 items)</h4>
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>จำนวน</th><th>Chance</th><th>ประเภท</th></tr></thead>
+          <tbody>
+            <tr><td>🏴 Cape of Pyzifax Banner</td><td>×1</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🟫 Tin Bar</td><td>×2–4</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Quadrans</td><td>×68–118</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Denarius</td><td>×1–3</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>❤️ Health Potion</td><td>×1–2</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🪙 Traveler's Coin</td><td>×1–2</td><td style="color:var(--orange2);">31%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>🍷 Wine</td><td>×1–3</td><td style="color:var(--orange2);">65%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>⚡ Energy Potion</td><td>×1–2</td><td style="color:var(--orange2);">33%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>💊 Antidote</td><td>×1–2</td><td style="color:var(--orange2);">60%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>🔥 Fire Arrow</td><td>×10–15</td><td style="color:var(--orange2);">20%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>🦐 Isicia Marina</td><td>×1</td><td style="color:var(--orange2);">20%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>🟤 Copper Bar</td><td>×2–3</td><td style="color:var(--orange2);">50%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>🧵 Linen</td><td>×1–3</td><td style="color:var(--orange2);">26.3%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>🦎 Cured Hide</td><td>×2–3</td><td style="color:var(--orange2);">57.9%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>🦀 Chitin</td><td>×1–3</td><td style="color:var(--orange2);">15.8%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🎰 Rare Drop Pool — เลือก 1 (16.7% each)</td></tr>
+            <tr><td>📜 Scroll of Vulcan</td><td>×1</td><td style="color:var(--red2);">16.7%</td><td><span class="tag t-pro">Rare</span></td></tr>
+            <tr><td>🧥 Physician's Cloak</td><td>×1</td><td style="color:var(--red2);">16.7%</td><td><span class="tag t-pro">Rare</span></td></tr>
+            <tr><td>🧤 Gardener's Gloves</td><td>×1</td><td style="color:var(--red2);">16.7%</td><td><span class="tag t-pro">Rare</span></td></tr>
+            <tr><td>🦞 Locusta Legatus</td><td>×1</td><td style="color:var(--red2);">16.7%</td><td><span class="tag t-pro">Rare</span></td></tr>
+            <tr><td>🧀 Fools' Gold</td><td>×1</td><td style="color:var(--red2);">16.7%</td><td><span class="tag t-pro">Rare</span></td></tr>
+            <tr><td>📜 Assassin's Scroll</td><td>×1</td><td style="color:var(--red2);">16.7%</td><td><span class="tag t-pro">Rare</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🗡️ Bronze Weapon Drop — เลือก 1 (7.7% each)</td></tr>
+            <tr><td>⚔️ Bronze Gladius</td><td>×1</td><td style="color:var(--red2);">7.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td>🏹 Sagittarii Bow</td><td>×1</td><td style="color:var(--red2);">7.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td>🗡️ Bronze Hasta</td><td>×1</td><td style="color:var(--red2);">7.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td>🔨 Bronze Sledgehammer</td><td>×1</td><td style="color:var(--red2);">7.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🪙 God Offering Drops</td></tr>
+            <tr><td>🎯 Mediocre Pelts (Diana)</td><td>×1</td><td style="color:var(--red2);">3.6%</td><td><span class="tag t-info">Offering</span></td></tr>
+            <tr><td>⚔️ Bloodied Spoils of War (Mars)</td><td>×1</td><td style="color:var(--red2);">7.3%</td><td><span class="tag t-info">Offering</span></td></tr>
+            <tr><td>💼 Scarce Cargo (Mercury)</td><td>×1</td><td style="color:var(--orange2);">18.2%</td><td><span class="tag t-info">Offering</span></td></tr>
+            <tr><td>💍 Delicate Accessory (Venus)</td><td>×1</td><td style="color:var(--orange2);">10.9%</td><td><span class="tag t-info">Offering</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="hbox" style="margin-top:12px;margin-bottom:0;">
+        <strong>🔓 Key Drop:</strong> Logistics Tent ★ (Automation Tier 2) — drop จาก Rare Pool ด้วย
       </div>
     </div>
   </div>
 
-  <!-- BOSS 3 -->
+  <!-- ─── BOSS 3: CYCLOPS ─── -->
   <div class="boss-card">
     <div class="boss-header">
       <div class="boss-icon">👁️</div>
       <div class="boss-title">
         <h3>Boss #3 — Cyclops "The Eye"</h3>
-        <p>📍 Desert Biome · Eye Dungeon · ต้องทำ Quest "Virgil's Poem" ก่อน</p>
+        <p>📍 Temple of the Eye · Desert Biome · ต้องทำ Quest "Virgil's Poem" ก่อน</p>
       </div>
       <div class="boss-num">
-        <div class="hp">~10,000 HP</div>
-        <div class="hp-lbl">HP (สูงมาก)</div>
+        <div class="hp">500 HP</div>
+        <div class="hp-lbl">1P · +33/player</div>
       </div>
     </div>
     <div class="boss-body">
       <div class="hbox red" style="margin-bottom:14px;">
-        <strong>⚠️ ระวัง:</strong> Boss ที่ยากที่สุดใน Early Access ตอนนี้ — HP Pool มหาศาล, Bullet Hell หนักมาก ต้องมี Bronze Gear ขั้นต่ำ ทำ Virgil's Poem Quest ก่อนถึงจะ unlock ได้
+        <strong>⚠️:</strong> ยากที่สุดใน Desert — Bullet Hell หนักมาก ต้องมี Bronze Gear · ทำ Virgil's Poem Quest ก่อน!
       </div>
       <div class="boss-grid">
         <div class="boss-col">
-          <h4>⚔️ Pattern การโจมตี</h4>
+          <h4>⚔️ Pattern</h4>
           <ul>
-            <li>ยิง Projectile หลายทิศพร้อมกัน (ตลอดเวลา!)</li>
-            <li>ใช้มือทุบพื้น — หินร่วงจากเพดาน</li>
-            <li>ปล่อย Eyeball กลิ้งไปมา (ชนทำดาเมจ)</li>
-            <li>หลาย Phase — แต่ละ Phase ยากขึ้น</li>
+            <li>ยิง Projectile หลายทิศ ตลอดเวลา</li>
+            <li>มือทุบพื้น — หินร่วงจากเพดาน</li>
+            <li>ปล่อย Eyeball กลิ้งไปมา</li>
+            <li>หลาย Phase ยากขึ้นเรื่อยๆ</li>
           </ul>
         </div>
         <div class="boss-col">
           <h4>🎯 กลยุทธ์</h4>
           <ul>
-            <li>หลบ Projectile คือหัวใจหลัก</li>
-            <li>หินร่วงทำดาเมจ Boss ด้วย! หลบให้ Boss โดน</li>
-            <li>ระวัง Eyeball ที่กลิ้งรอบห้อง</li>
-            <li>เตรียม Healing Food เยอะๆ</li>
-            <li>Co-op จะง่ายขึ้นมากในตัวนี้</li>
+            <li>หลบ Projectile = หัวใจหลัก</li>
+            <li>หินร่วงทำดาเมจ Boss ด้วย! ปล่อยให้โดน</li>
+            <li>HP Co-op: 1P=500 / 2P=533 / 3P=566 / 4P=599</li>
           </ul>
         </div>
       </div>
-      <div style="margin-top:14px;">
-        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--purple2);text-transform:uppercase;margin-bottom:8px;">💎 สิ่งที่ได้รับ (Drop)</h4>
-        <div class="badge-row">
-          <span class="drop-pill">🦷 Granite Tooth</span>
-          <span class="drop-pill">💅 Nail of the Cyclops</span>
-          <span class="drop-pill">🔶 Cyclops Shard ★</span>
-          <span class="drop-pill">🟤 Bronze Bar</span>
-          <span class="drop-pill">🧵 Linen</span>
-          <span class="drop-pill">🦴 Bonesplint</span>
-          <span class="drop-pill">💰 Coins</span>
-          <span class="drop-pill drop-rare">🪖 Tectonic Helmet (Random)</span>
-          <span class="drop-pill drop-rare">🛡️ Tectonic Armor (Random)</span>
-          <span class="drop-pill drop-rare">👢 Tectonic Boots (Random)</span>
-        </div>
-        <div class="hbox" style="margin-top:10px;margin-bottom:0;">
-          <strong>Cyclops Shard → Craft Tectonic Armor</strong> ที่ Blacksmith Lv.5 = ชุดเกราะสำหรับ Volcanic Biome
-        </div>
+
+      <div style="margin-top:16px;">
+        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">📦 Drop Table ครบ (12 items)</h4>
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>จำนวน</th><th>Chance</th><th>ประเภท</th></tr></thead>
+          <tbody>
+            <tr><td>🦷 Granite Tooth</td><td>×1</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🔶 Cyclops Shard</td><td>×2–3</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed ★</span></td></tr>
+            <tr><td>💅 Nail of the Cyclops</td><td>×1–2</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Quadrans</td><td>×25–30</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Denarius</td><td>×6–9</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🪙 Traveler's Coin</td><td>×3–4</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🎰 Loot Slot 1 — Armor (33.3% each)</td></tr>
+            <tr><td>🪖 Tectonic Helmet</td><td>×1</td><td style="color:var(--red2);">33.3%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td>🛡️ Tectonic Armor</td><td>×1</td><td style="color:var(--red2);">33.3%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td>👢 Tectonic Boots</td><td>×1</td><td style="color:var(--red2);">33.3%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🎰 Loot Slot 2 — Material</td></tr>
+            <tr><td>🟤 Bronze Bar</td><td>×3–6</td><td style="color:var(--orange2);">50%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td>🧵 Linen</td><td>×3–6</td><td style="color:var(--orange2);">25%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td>🦀 Chitin</td><td>×3–6</td><td style="color:var(--orange2);">25%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="hbox" style="margin-top:12px;margin-bottom:0;">
+        <strong>★ Cyclops Shard</strong> → Craft Tectonic Armor ที่ Blacksmith Lv.5 = เกราะสำหรับ Volcanic Biome
       </div>
     </div>
   </div>
 
-  <!-- BOSS 4 -->
+  <!-- ─── BOSS 4: MEDUSA ─── -->
+  <div class="boss-card">
+    <div class="boss-header">
+      <div class="boss-icon">🐍</div>
+      <div class="boss-title">
+        <h3>Boss #4 — Medusa</h3>
+        <p>📍 Medusa's Gallery of Souls · +33 HP/extra player</p>
+      </div>
+      <div class="boss-num">
+        <div class="hp">400 HP</div>
+        <div class="hp-lbl">1P · +33/player</div>
+      </div>
+    </div>
+    <div class="boss-body">
+      <div class="hbox" style="margin-bottom:14px;">
+        <strong>วิธีเปิด:</strong> Divine flame reveals location on map · "Something awaits" · HP Co-op: 1P=400 / 2P=433 / 3P=466 / 4P=499
+      </div>
+      <div style="margin-top:8px;">
+        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">📦 Drop Table</h4>
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>จำนวน</th><th>Chance</th><th>ประเภท</th></tr></thead>
+          <tbody>
+            <tr><td>🪞 Mirror</td><td>×1</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+          </tbody>
+        </table>
+        <p style="color:var(--muted);font-size:12px;margin-top:6px;">⚠️ Boss ใหม่ — drop table ยังมีข้อมูลน้อย ติดตามเพิ่มเติมตาม update</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── BOSS 5: GREAT PHOENIX ─── -->
   <div class="boss-card">
     <div class="boss-header">
       <div class="boss-icon">🔥</div>
       <div class="boss-title">
-        <h3>Boss #4 — Great Phoenix of Arabia</h3>
-        <p>📍 Volcanic Biome · ทางใต้ · หา Standing Stones + Altar กลางลาน</p>
+        <h3>Boss #5 — Great Phoenix of Arabia</h3>
+        <p>📍 Scorched Shrine · Volcanic Biome (ทางใต้)</p>
       </div>
       <div class="boss-num">
-        <div class="hp">Very High</div>
-        <div class="hp-lbl">HP Level</div>
+        <div class="hp">1,200 HP</div>
+        <div class="hp-lbl">1P · +100/player</div>
       </div>
     </div>
     <div class="boss-body">
       <div class="hbox green" style="margin-bottom:14px;">
-        <strong>วิธีเปิดการต่อสู้:</strong> ไปที่ Volcanic Biome ทางใต้ → หา <strong>ลานเปิดกว้าง + หินล้อมรอบ + Altar กลาง</strong> → <strong>ทุบทำลาย Altar</strong> → Phoenix Spawn จากเปลวไฟ
+        <strong>วิธีเปิด:</strong> "The strange man reveals a location" → หา Standing Stones + Altar ใน Volcanic → <strong>ทุบทำลาย Altar</strong> → Phoenix Spawn
       </div>
       <div class="boss-grid">
         <div class="boss-col">
-          <h4>⚔️ Pattern การโจมตี</h4>
+          <h4>⚔️ Pattern</h4>
           <ul>
-            <li>AoE Fire Attack — กว้างมาก, หลบยาก</li>
-            <li>Fireball Phase — ถล่มพื้นที่ทั้งหมด</li>
-            <li>HP Pool สูงมาก ต้องรบนาน</li>
-            <li>Volcanic Biome มี Fire/Burn Hazard</li>
+            <li>AoE Fire Attack กว้างมาก</li>
+            <li>Fireball Phase ถล่มพื้นที่</li>
+            <li>HP สูงมาก — รบนาน</li>
+            <li>Environmental Fire/Burn Hazard</li>
           </ul>
         </div>
         <div class="boss-col">
           <h4>🎯 กลยุทธ์</h4>
           <ul>
-            <li>เตรียม Aloe Salve (สู้ Burn damage)</li>
-            <li>เกราะ Tectonic ขั้นต่ำ</li>
-            <li>อย่า Trigger ลำพังถ้าไม่พร้อม</li>
-            <li>ตั้ง Tent หน้า Boss ทุกครั้ง</li>
-            <li>Co-op จำเป็นมากสำหรับ Boss นี้</li>
+            <li>เตรียม Aloe Salve สู้ Burn</li>
+            <li>Tectonic Armor ขั้นต่ำ</li>
+            <li>ตั้ง Tent หน้า Boss เสมอ</li>
+            <li>HP: 1P=1200 / 2P=1300 / 3P=1400 / 4P=1500</li>
           </ul>
         </div>
       </div>
-      <div style="margin-top:14px;">
-        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--purple2);text-transform:uppercase;margin-bottom:8px;">💎 สิ่งที่ได้รับ (Drop)</h4>
-        <div class="badge-row">
-          <span class="drop-pill drop-rare">🔥 Phoenix Feather</span>
-          <span class="drop-pill drop-rare">🦅 Phoenix Feather Cape</span>
-          <span class="drop-pill">🔥 Volcanic Materials</span>
-          <span class="drop-pill drop-rare">🛡️ Firescale Armor (Set)</span>
-        </div>
+
+      <div style="margin-top:16px;">
+        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">📦 Drop Table ครบ (35 items)</h4>
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>จำนวน</th><th>Chance</th><th>ประเภท</th></tr></thead>
+          <tbody>
+            <tr><td>🪶 Phoenix Feather</td><td>×1</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed ★</span></td></tr>
+            <tr><td>🔥 Iron Bar</td><td>×3–5</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>📄 Research Paper</td><td>×4–7</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Denarius</td><td>×4–6</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Quadrans</td><td>×12–99</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🍖 Patina de Malis</td><td>×1</td><td style="color:var(--orange2);">30%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>❤️ Major Health Potion</td><td>×2–3</td><td style="color:var(--orange2);">75%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>⚡ Major Energy Potion</td><td>×2</td><td style="color:var(--orange2);">25%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td>🪙 Traveler's Coin</td><td>×1–2</td><td style="color:var(--orange2);">27.1%</td><td><span class="tag t-info">Common</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🎰 Loot Slot 1 — Quest Item (Guaranteed)</td></tr>
+            <tr><td>🔬 Phoenix Ash Sample</td><td>×1</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Quest</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">💎 Rare Unique Drops (1.2% each)</td></tr>
+            <tr><td>💍 Pyromancer's Ring</td><td>×1–2</td><td style="color:var(--red2);">1.2%</td><td><span class="tag t-pro">Unique</span></td></tr>
+            <tr><td>⛑️ Mercury's Helmet</td><td>×1–2</td><td style="color:var(--red2);">1.2%</td><td><span class="tag t-pro">Unique</span></td></tr>
+            <tr><td>💊 Bottled Rage</td><td>×1–2</td><td style="color:var(--red2);">1.2%</td><td><span class="tag t-pro">Unique</span></td></tr>
+            <tr><td>🏹 Bow of Victoria</td><td>×1–2</td><td style="color:var(--red2);">1.2%</td><td><span class="tag t-pro">Unique</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🎰 Rare Trinket Pool (16.1% each)</td></tr>
+            <tr><td>🧤 Blacksmith's Gloves</td><td>×1</td><td style="color:var(--red2);">16.1%</td><td><span class="tag t-pro">Trinket</span></td></tr>
+            <tr><td>🧤 Giants Gloves</td><td>×1</td><td style="color:var(--red2);">16.1%</td><td><span class="tag t-pro">Trinket</span></td></tr>
+            <tr><td>🪶 Phoenix Feather Cape</td><td>×1</td><td style="color:var(--red2);">16.1%</td><td><span class="tag t-pro">Trinket</span></td></tr>
+            <tr><td>🧙 Magus Vulcan Cape</td><td>×1</td><td style="color:var(--red2);">16.1%</td><td><span class="tag t-pro">Trinket</span></td></tr>
+            <tr><td>🎣 Lucky Clover Hook</td><td>×1</td><td style="color:var(--red2);">16.1%</td><td><span class="tag t-pro">Trinket</span></td></tr>
+            <tr><td>🔥 Vulcan's Fire Iron</td><td>×1</td><td style="color:var(--red2);">16.1%</td><td><span class="tag t-pro">Unique Weapon</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">⚔️ Iron Weapon Pool (1.7% each)</td></tr>
+            <tr><td>⚔️ Iron Gladius</td><td>×1</td><td style="color:var(--red2);">1.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td>🏹 Ballistarii Bow</td><td>×1</td><td style="color:var(--red2);">1.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td>🏹 Iron Arcuballista</td><td>×1</td><td style="color:var(--red2);">1.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td>🗡️ Iron Hasta</td><td>×1</td><td style="color:var(--red2);">1.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td>🔨 Iron Sledgehammer</td><td>×1</td><td style="color:var(--red2);">1.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+            <tr><td>🗡️ Iron Daggers</td><td>×1</td><td style="color:var(--red2);">1.7%</td><td><span class="tag t-pro">Weapon</span></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-</div>
 
+  <!-- ─── BOSS 6: TALOS PROTOTYPE ─── -->
+  <div class="boss-card">
+    <div class="boss-header">
+      <div class="boss-icon">⚙️</div>
+      <div class="boss-title">
+        <h3>Boss #6 — Talos Prototype</h3>
+        <p>📍 Temple of Vulcan · "The divine flame reveals... The Temple of Vulcan awaits."</p>
+      </div>
+      <div class="boss-num">
+        <div class="hp">1,800 HP</div>
+        <div class="hp-lbl">1P · +33/player</div>
+      </div>
+    </div>
+    <div class="boss-body">
+      <div class="hbox red" style="margin-bottom:14px;">
+        <strong>⚠️ HP สูงสุดในเกม!</strong> 1,800 HP base · Late Game Boss · HP Co-op: 1P=1800 / 2P=1833 / 3P=1866 / 4P=1899
+      </div>
+      <div style="margin-top:8px;">
+        <h4 style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">📦 Drop Table</h4>
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>จำนวน</th><th>Chance</th><th>ประเภท</th></tr></thead>
+          <tbody>
+            <tr><td>⚙️ Core Vessel</td><td>×1</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed ★</span></td></tr>
+            <tr><td>🔩 Talos Plate</td><td>×4–6</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🔧 Talos Bolt</td><td>×1–2</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>💰 Denarius</td><td>×12–18</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td>🪙 Traveler's Coin</td><td>×3–4</td><td style="color:var(--green2);">100%</td><td><span class="tag t-drop">Guaranteed</span></td></tr>
+            <tr><td colspan="4" style="background:rgba(212,168,75,0.06);color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">🎰 Loot Slot 1</td></tr>
+            <tr><td>📄 Research Paper</td><td>×5–8</td><td style="color:var(--orange2);">71.4%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+            <tr><td>💣 Explosive Pot</td><td>×1–2</td><td style="color:var(--red2);">28.6%</td><td><span class="tag t-pro">Loot Slot</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── BOSS 7: DI INFERI ─── -->
+  <div class="boss-card">
+    <div class="boss-header">
+      <div class="boss-icon">💀</div>
+      <div class="boss-title">
+        <h3>Boss #7 — Di Inferi</h3>
+        <p>📍 The Temple of Orcus · ข้อมูลยังอยู่ระหว่างการรวบรวม</p>
+      </div>
+      <div class="boss-num">
+        <div class="hp">700 HP</div>
+        <div class="hp-lbl">Base HP</div>
+      </div>
+    </div>
+    <div class="boss-body">
+      <div class="hbox" style="margin-bottom:12px;">
+        Boss ใหม่ที่เพิ่งเพิ่มเข้ามาใน Early Access — ข้อมูล pattern และกลยุทธ์ยังไม่ complete รอ community update
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Item</th><th>จำนวน</th><th>Chance</th><th>ประเภท</th></tr></thead>
+        <tbody>
+          <tr><td colspan="4" style="color:var(--muted);text-align:center;font-size:12px;">Drop table ยังไม่ confirmed — ติดตามอัพเดต</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
 <div class="divider"></div>
 
 <!-- ═══════════════ GEAR ═══════════════ -->
@@ -1796,238 +2017,6 @@ footer {
     </div>
   </div>
 </div>
-
-<!-- ═══════════════ ITEM DATABASE ═══════════════ -->
-<div class="section" id="database">
-  <div class="sec-header">
-    <div class="sec-icon" style="background:rgba(212,168,75,0.15);">🗃️</div>
-    <div><h2>Database อุปกรณ์ทั้งหมด / All Items Database</h2><p>ค้นหาและกรองไอเทมในเกม · Search & Filter All Game Items</p></div>
-  </div>
-
-  <div class="hbox" style="margin-bottom:16px;">
-    ⚠️ <strong>หมายเหตุ:</strong> ข้อมูลด้านล่างครอบคลุม ~107 รายการแรก (A–C) จากทั้งหมด 665 รายการ ดูข้อมูลครบทุกชิ้นได้ที่ <a href="https://metaforge.app/romestead/database" target="_blank" style="color:var(--gold2);">metaforge.app/romestead/database</a>
-  </div>
-
-  <!-- Category Summary -->
-  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
-    <span class="biome-chip" style="background:rgba(192,57,43,0.15);color:var(--red2);cursor:pointer;" onclick="filterDB('Weapon')">⚔️ อาวุธ / Weapons <strong>108</strong></span>
-    <span class="biome-chip" style="background:rgba(41,128,185,0.15);color:var(--blue2);cursor:pointer;" onclick="filterDB('Equipment')">🛡️ อุปกรณ์/เกราะ / Equipment <strong>209</strong></span>
-    <span class="biome-chip" style="background:rgba(39,174,96,0.15);color:var(--green2);cursor:pointer;" onclick="filterDB('Food')">🍖 อาหาร / Food <strong>89</strong></span>
-    <span class="biome-chip" style="background:rgba(212,168,75,0.15);color:var(--gold2);cursor:pointer;" onclick="filterDB('Material')">🪨 วัสดุ / Materials <strong>75</strong></span>
-    <span class="biome-chip" style="background:rgba(142,68,173,0.15);color:var(--purple2);cursor:pointer;" onclick="filterDB('Consumable')">🧪 ของสิ้นเปลือง / Consumables <strong>15</strong></span>
-    <span class="biome-chip" style="background:rgba(22,160,133,0.15);color:var(--teal2);cursor:pointer;" onclick="filterDB('Furniture')">🏠 เฟอร์นิเจอร์ / Furniture <strong>22</strong></span>
-    <span class="biome-chip" style="background:rgba(230,126,34,0.15);color:var(--orange2);cursor:pointer;" onclick="filterDB('Seed')">🌱 เมล็ดพันธุ์ / Seeds <strong>23</strong></span>
-    <span class="biome-chip" style="background:rgba(180,180,180,0.15);color:#ccc;cursor:pointer;" onclick="filterDB('')">📋 ทั้งหมด / All</span>
-  </div>
-
-  <!-- Search + Filter controls -->
-  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
-    <input id="db-search" type="text" placeholder="🔍 ค้นหาชื่อไอเทม / Search item name..." 
-      oninput="renderDB()"
-      style="flex:1;min-width:200px;background:var(--card2);border:1px solid var(--border2);color:var(--cream);padding:8px 12px;border-radius:6px;font-family:inherit;font-size:13px;" />
-    <select id="db-tier" onchange="renderDB()"
-      style="background:var(--card2);border:1px solid var(--border2);color:var(--cream);padding:8px 12px;border-radius:6px;font-family:inherit;font-size:13px;">
-      <option value="">Tier ทั้งหมด</option>
-      <option value="1">Tier 1</option>
-      <option value="2">Tier 2</option>
-      <option value="3">Tier 3</option>
-      <option value="4">Tier 4</option>
-      <option value="5">Tier 5</option>
-      <option value="6">Tier 6</option>
-    </select>
-  </div>
-
-  <!-- Table -->
-  <div style="overflow-x:auto;">
-  <table id="db-table" style="width:100%;border-collapse:collapse;font-size:13px;">
-    <thead>
-      <tr style="background:var(--card2);border-bottom:2px solid var(--gold);">
-        <th style="padding:10px 12px;text-align:left;color:var(--gold2);">ชื่อ / Name</th>
-        <th style="padding:10px 12px;text-align:left;color:var(--gold2);">ประเภท / Type</th>
-        <th style="padding:10px 8px;text-align:center;color:var(--gold2);">Tier</th>
-        <th style="padding:10px 12px;text-align:left;color:var(--gold2);">ราคา / Price</th>
-      </tr>
-    </thead>
-    <tbody id="db-body"></tbody>
-  </table>
-  </div>
-  <div id="db-count" style="margin-top:10px;color:var(--muted2);font-size:12px;"></div>
-  <div style="margin-top:12px;padding:12px;background:var(--card2);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--muted2);">
-    💡 <strong>สกุลเงินในเกม / Currency:</strong> 
-    <span style="color:var(--gold2);">A = Aureus (ทอง)</span> · 
-    <span style="color:var(--cream);">D = Denarius (เงิน)</span> · 
-    <span style="color:var(--muted2);">Q = Quadrans (ทองแดง)</span> · 
-    <span style="color:#b8a0d0;">E = Electrum (หายาก)</span>
-  </div>
-</div>
-
-<script>
-const DB_ITEMS = [
-  {"name":"Abandoned Abacus","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Adventuring Boots","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"15D"},
-  {"name":"Adventuring Cloak","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"15D"},
-  {"name":"Adventuring Hat","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"15D"},
-  {"name":"Aegis","type":"Weapon","type_th":"อาวุธ","tier":"5","price":"1A"},
-  {"name":"Aloe Salve","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"2","price":"2D 50Q"},
-  {"name":"Aloe Seeds","type":"Seed","type_th":"เมล็ดพันธุ์","tier":"1","price":"50Q"},
-  {"name":"Aloe Vera","type":"Material","type_th":"วัสดุ","tier":"1","price":"1D"},
-  {"name":"Amanita Mycelium","type":"Seed","type_th":"เมล็ดพันธุ์","tier":"1","price":"5Q"},
-  {"name":"Ambrosia","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"3","price":"6D"},
-  {"name":"Amethyst","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"2","price":"10D"},
-  {"name":"Amor Redivivus","type":"Quest","type_th":"ไอเทม Quest","tier":"6","price":"-"},
-  {"name":"Ancient Amulet","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"3","price":"8D"},
-  {"name":"Ancient Clay Tablet","type":"Consumable","type_th":"ของใช้สิ้นเปลือง","tier":"3","price":"6D"},
-  {"name":"Ancient Tooth","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"10D"},
-  {"name":"Antidote","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"2","price":"1D 50Q"},
-  {"name":"Apple","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"1","price":"12Q"},
-  {"name":"Apple Tree Sapling","type":"Seed","type_th":"เมล็ดพันธุ์","tier":"1","price":"15Q"},
-  {"name":"Apricot","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"1","price":"50Q"},
-  {"name":"Apricot Tree Sapling","type":"Seed","type_th":"เมล็ดพันธุ์","tier":"1","price":"30Q"},
-  {"name":"Aqua Arrow","type":"Weapon","type_th":"อาวุธ","tier":"-","price":"10Q"},
-  {"name":"Archer's Gloves","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"6D"},
-  {"name":"Arquites Bow","type":"Weapon","type_th":"อาวุธ","tier":"-","price":"50Q"},
-  {"name":"Ash","type":"Resource","type_th":"ทรัพยากร","tier":"-","price":"-"},
-  {"name":"Ash-covered Tablet","type":"Consumable","type_th":"ของใช้สิ้นเปลือง","tier":"3","price":"6D"},
-  {"name":"Ashen Bow","type":"Weapon","type_th":"อาวุธ","tier":"-","price":"2D 50Q"},
-  {"name":"Ashen Ring","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Ashen Sword","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"2D 50Q"},
-  {"name":"Assassin's Scroll","type":"Weapon","type_th":"อาวุธ","tier":"3","price":"6D"},
-  {"name":"Astounding Accessory","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"3","price":"6D"},
-  {"name":"Augur Headpiece","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"6D"},
-  {"name":"Augur Robes","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"6D"},
-  {"name":"Augur Sandals","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"6D"},
-  {"name":"Aureus","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"1","price":"1A"},
-  {"name":"Ballistarii Bow","type":"Weapon","type_th":"อาวุธ","tier":"3","price":"10D"},
-  {"name":"Bare Feather","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"2","price":"-"},
-  {"name":"Bark-back","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Barricade","type":"Furniture","type_th":"เฟอร์นิเจอร์","tier":"1","price":"20Q"},
-  {"name":"Basalt Bulwark Chestplate","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"6D"},
-  {"name":"Basalt Bulwark Greaves","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"6D"},
-  {"name":"Basalt Bulwark Helmet","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"6D"},
-  {"name":"Basic Cargo","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"1","price":"50Q"},
-  {"name":"Bay Leaf","type":"Material","type_th":"วัสดุ","tier":"1","price":"5Q"},
-  {"name":"Bay Seeds","type":"Seed","type_th":"เมล็ดพันธุ์","tier":"1","price":"10Q"},
-  {"name":"Bearserker Caestus","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"2D 50Q"},
-  {"name":"Bearserker Cowl","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Bearserker Fur Cloak","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Bearserker Furs","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Bearserker Sandals","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Bed","type":"Furniture","type_th":"เฟอร์นิเจอร์","tier":"1","price":"1D 85Q"},
-  {"name":"Bedouin Cloak","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Beehive","type":"Furniture","type_th":"เฟอร์นิเจอร์","tier":"1","price":"2D 50Q"},
-  {"name":"Beer","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"2","price":"50Q"},
-  {"name":"Berry Crostata","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"2","price":"2D 50Q"},
-  {"name":"Birch Idol","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Blackberry","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"1","price":"3Q"},
-  {"name":"Blackberry Bush Seed","type":"Seed","type_th":"เมล็ดพันธุ์","tier":"1","price":"5Q"},
-  {"name":"Blacksmith's Gloves","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"3","price":"6D"},
-  {"name":"Blessed Waterskin","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Bloodied Spoils of War","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"2","price":"3D"},
-  {"name":"Boletus Mushroom","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"1","price":"5Q"},
-  {"name":"Boletus Mycelium","type":"Seed","type_th":"เมล็ดพันธุ์","tier":"1","price":"5Q"},
-  {"name":"Bone","type":"Material","type_th":"วัสดุ","tier":"1","price":"20Q"},
-  {"name":"Bonesplint","type":"Material","type_th":"วัสดุ","tier":"2","price":"1D"},
-  {"name":"Bonesplint Armor","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1D 20Q"},
-  {"name":"Bonesplint Boots","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1D 20Q"},
-  {"name":"Bonesplint Cowl","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1D 20Q"},
-  {"name":"Bottle of Hot Spring Water","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"3","price":"20D"},
-  {"name":"Bottle of Resin","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"3","price":"5D"},
-  {"name":"Bottled Rage","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"4","price":"7D"},
-  {"name":"Bow of Victoria","type":"Weapon","type_th":"อาวุธ","tier":"5","price":"1A"},
-  {"name":"Bracelet of Rage","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1Q"},
-  {"name":"Bread","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"1","price":"40Q"},
-  {"name":"Brick","type":"Resource","type_th":"ทรัพยากร","tier":"-","price":"-"},
-  {"name":"Brick Road Upgrade","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"2","price":"2D 50Q"},
-  {"name":"Brittonic Ring","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Broken Fibulae","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"3D"},
-  {"name":"Bronze Arcuballista","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"1D 30Q"},
-  {"name":"Bronze Arrow","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"40Q"},
-  {"name":"Bronze Axe","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1D"},
-  {"name":"Bronze Bar","type":"Material","type_th":"วัสดุ","tier":"2","price":"1D 50Q"},
-  {"name":"Bronze Cart","type":"Furniture","type_th":"เฟอร์นิเจอร์","tier":"1","price":"25D"},
-  {"name":"Bronze Chestplate","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1D 20Q"},
-  {"name":"Bronze Daggers","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"1D 30Q"},
-  {"name":"Bronze Dodecahedron","type":"Misc","type_th":"เบ็ดเตล็ด","tier":"5","price":"1E"},
-  {"name":"Bronze Gladius","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"1D 30Q"},
-  {"name":"Bronze Grappling Hook","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"2D 50Q"},
-  {"name":"Bronze Greaves","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1D 20Q"},
-  {"name":"Bronze Hasta","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"1D 30Q"},
-  {"name":"Bronze Helmet","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1D 20Q"},
-  {"name":"Bronze Nails","type":"Material","type_th":"วัสดุ","tier":"2","price":"50Q"},
-  {"name":"Bronze Pickaxe","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"1D"},
-  {"name":"Bronze Pilum","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"20Q"},
-  {"name":"Bronze Pilum Head","type":"Material","type_th":"วัสดุ","tier":"1","price":"2D 50Q"},
-  {"name":"Bronze Shield","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"1D 30Q"},
-  {"name":"Bronze Sledgehammer","type":"Weapon","type_th":"อาวุธ","tier":"2","price":"1D 30Q"},
-  {"name":"Bronze Thread","type":"Material","type_th":"วัสดุ","tier":"1","price":"40Q"},
-  {"name":"Bucket","type":"Furniture","type_th":"เฟอร์นิเจอร์","tier":"1","price":"1D"},
-  {"name":"Burning Fallen Cape","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"4D 50Q"},
-  {"name":"Burnt Oak Gall","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"2","price":"2D 50Q"},
-  {"name":"Cabbage","type":"Food","type_th":"อาหาร/เครื่องดื่ม","tier":"1","price":"10Q"},
-  {"name":"Cabbage Seeds","type":"Seed","type_th":"เมล็ดพันธุ์","tier":"1","price":"10Q"},
-  {"name":"Camillus Headpiece","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"1","price":"50Q"},
-  {"name":"Camillus Robes","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"1","price":"50Q"},
-  {"name":"Camillus Sandals","type":"Equipment","type_th":"อุปกรณ์/เกราะ","tier":"1","price":"50Q"},
-  {"name":"Campfire","type":"Furniture","type_th":"เฟอร์นิเจอร์","tier":"1","price":"30Q"},
-  {"name":"Camping Tent","type":"Furniture","type_th":"เฟอร์นิเจอร์","tier":"1","price":"1D 50Q"},
-];
-
-const TYPE_COLORS = {
-  "Weapon": "#e74c3c",
-  "Equipment": "#5dade2",
-  "Food": "#2ecc71",
-  "Material": "#f39c12",
-  "Consumable": "#a569bd",
-  "Furniture": "#1abc9c",
-  "Seed": "#e67e22",
-  "Resource": "#95a5a6",
-  "Misc": "#bdc3c7",
-  "Quest": "#f0c96e",
-};
-
-let currentFilter = '';
-
-function filterDB(type) {
-  currentFilter = type;
-  document.getElementById('db-search').value = '';
-  document.getElementById('db-tier').value = '';
-  renderDB();
-}
-
-function renderDB() {
-  const search = document.getElementById('db-search').value.toLowerCase();
-  const tier = document.getElementById('db-tier').value;
-  const tbody = document.getElementById('db-body');
-  
-  let filtered = DB_ITEMS.filter(item => {
-    if (currentFilter && item.type !== currentFilter) return false;
-    if (search && !item.name.toLowerCase().includes(search)) return false;
-    if (tier && item.tier !== tier) return false;
-    return true;
-  });
-  
-  tbody.innerHTML = filtered.map((item, i) => {
-    const color = TYPE_COLORS[item.type] || '#ccc';
-    const bg = i % 2 === 0 ? 'var(--card)' : 'var(--card2)';
-    return `<tr style="background:${bg};border-bottom:1px solid var(--border);">
-      <td style="padding:9px 12px;font-weight:600;color:var(--cream);">${item.name}</td>
-      <td style="padding:9px 12px;">
-        <span style="background:${color}22;color:${color};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;">
-          ${item.type_th}<br><span style="font-weight:400;opacity:0.8;font-size:10px;">${item.type}</span>
-        </span>
-      </td>
-      <td style="padding:9px 8px;text-align:center;color:var(--gold2);font-weight:700;">${item.tier === '-' ? '—' : item.tier}</td>
-      <td style="padding:9px 12px;color:var(--muted2);">${item.price === '-' ? '—' : item.price}</td>
-    </tr>`;
-  }).join('');
-  
-  document.getElementById('db-count').textContent = `แสดง ${filtered.length} / ${DB_ITEMS.length} รายการ (A–C จากทั้งหมด 665)`;
-}
-
-// Init
-renderDB();
-</script>
-
 </div><!-- end .page -->
 
 <footer>

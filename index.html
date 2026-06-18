@@ -3,180 +3,669 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Romestead — Thai Guide & Database</title>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Romestead TH — คู่มือ & Database ภาษาไทย</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* ── Reset & Root ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#0f0c07;--gold:#d4a84b;--gold2:#f0c96e;--cream:#f0e6d0;
-  --muted:#8a7258;--muted2:#b39878;--border:#3d2e18;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  background:var(--bg);color:var(--cream);
-  font-family:'Sarabun',sans-serif;
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:24px 16px;
+  --bg:     #111010;
+  --bg2:    #181717;
+  --bg3:    #1f1e1e;
+  --border: #2a2828;
+  --border2:#3a3838;
+  --text:   #e8e3dc;
+  --muted:  #6b6560;
+  --muted2: #9e9790;
+  --gold:   #c9993e;
+  --gold2:  #e8b84b;
+  --gold3:  #f5d070;
+  --red:    #c0392b;
+  --blue:   #3a82c4;
+  --blue2:  #5fa3d8;
+  --green:  #2d8a5e;
+  --green2: #3dab76;
+  --purple: #7c52b8;
+  --radius: 8px;
+  --radius2:12px;
 }
 
-/* BG glow */
-body::before{
-  content:'';position:fixed;inset:0;
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter','Sarabun',sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  min-height:100vh;
+}
+
+/* ── Nav ── */
+.topnav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(17,16,16,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 20px;
+}
+.topnav-inner{
+  max-width:1080px;margin:0 auto;
+  display:flex;align-items:center;gap:4px;
+  height:48px;
+}
+.nav-brand{
+  display:flex;align-items:center;gap:8px;
+  font-weight:800;font-size:15px;color:var(--text);
+  text-decoration:none;margin-right:12px;
+  flex-shrink:0;
+}
+.nav-brand .dot{color:var(--gold2);}
+.nav-links{display:flex;gap:2px;align-items:center;}
+.nav-links a{
+  color:var(--muted2);font-size:13px;font-weight:500;
+  padding:6px 10px;border-radius:6px;
+  text-decoration:none;transition:color .15s,background .15s;
+}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.05);}
+.nav-badge{
+  margin-left:auto;
+  background:rgba(201,153,62,.15);
+  border:1px solid rgba(201,153,62,.3);
+  color:var(--gold2);
+  font-size:10px;font-weight:700;
+  letter-spacing:.8px;text-transform:uppercase;
+  padding:3px 8px;border-radius:4px;
+  flex-shrink:0;
+}
+
+/* ── Hero ── */
+.hero{
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  padding:64px 20px 56px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 70% 50% at 50% 0%,rgba(212,168,75,.13) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 40% at 20% 80%,rgba(231,76,60,.07) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 40% at 80% 80%,rgba(93,173,226,.07) 0%,transparent 60%);
+    radial-gradient(ellipse 60% 70% at 50% -10%,rgba(201,153,62,.09) 0%,transparent 65%),
+    radial-gradient(ellipse 30% 40% at 15% 100%,rgba(60,130,196,.05) 0%,transparent 60%),
+    radial-gradient(ellipse 30% 40% at 85% 100%,rgba(60,160,110,.05) 0%,transparent 60%);
   pointer-events:none;
 }
-
-.wrap{position:relative;z-index:1;width:100%;max-width:700px;text-align:center;}
-
-/* LOGO / TITLE */
-.logo{font-size:48px;margin-bottom:8px;filter:drop-shadow(0 0 24px rgba(212,168,75,.5));}
-.title{
-  font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;
+.hero-inner{position:relative;z-index:1;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(201,153,62,.1);
+  border:1px solid rgba(201,153,62,.25);
   color:var(--gold2);
-  text-shadow:0 0 40px rgba(212,168,75,.4);
-  letter-spacing:1px;
+  font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;
+  margin-bottom:20px;
+}
+.hero-title{
+  font-size:clamp(2.2rem,6vw,3.8rem);
+  font-weight:900;
+  color:#fff;
+  letter-spacing:-1.5px;
+  line-height:1.05;
   margin-bottom:6px;
 }
-.subtitle{color:var(--muted2);font-size:15px;margin-bottom:36px;}
-
-/* DIVIDER */
-.divider{
-  width:180px;height:2px;margin:0 auto 36px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+.hero-title span{color:var(--gold2);}
+.hero-sub{
+  font-family:'Sarabun',sans-serif;
+  color:var(--muted2);font-size:15px;
+  margin-bottom:32px;
+  max-width:520px;margin-left:auto;margin-right:auto;
 }
+/* hero CTA buttons */
+.hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--gold2);color:#0d0b00;
+  font-weight:700;font-size:13px;
+  padding:10px 20px;border-radius:var(--radius);
+  text-decoration:none;transition:opacity .2s,transform .15s;
+  border:none;cursor:pointer;
+}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px);}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:6px;
+  background:transparent;
+  border:1px solid var(--border2);
+  color:var(--muted2);
+  font-weight:600;font-size:13px;
+  padding:10px 20px;border-radius:var(--radius);
+  text-decoration:none;transition:all .2s;
+}
+.btn-secondary:hover{border-color:var(--gold2);color:var(--text);}
 
-/* CARDS */
-.cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
-
-.card{
-  background:linear-gradient(145deg,#1e1508,#150f04);
+/* hero stats */
+.hero-stats{
+  display:inline-flex;gap:0;
+  background:var(--bg2);
   border:1px solid var(--border);
-  border-radius:16px;
-  padding:32px 28px;
-  width:300px;
-  text-decoration:none;
-  color:var(--cream);
-  transition:transform .25s,border-color .25s,box-shadow .25s;
-  position:relative;
+  border-radius:var(--radius2);
   overflow:hidden;
 }
-.card::before{
+.hstat{
+  padding:12px 22px;text-align:center;
+  border-right:1px solid var(--border);
+}
+.hstat:last-child{border-right:none;}
+.hstat .v{font-size:20px;font-weight:800;color:var(--text);}
+.hstat .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:1px;}
+
+/* ── Page wrap ── */
+.page{max-width:1080px;margin:0 auto;padding:0 20px 80px;}
+
+/* ── Section label ── */
+.sec-label{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--muted);
+  padding:32px 0 12px;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-label::after{
+  content:'';flex:1;height:1px;
+  background:var(--border);
+}
+
+/* ── Main cards (Guide + DB) ── */
+.main-cards{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  margin-bottom:12px;
+}
+@media(max-width:600px){.main-cards{grid-template-columns:1fr;}}
+
+.main-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius2);
+  padding:24px;
+  text-decoration:none;color:var(--text);
+  display:flex;flex-direction:column;
+  gap:12px;
+  transition:border-color .2s,box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.main-card::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 50% 0%,var(--glow) 0%,transparent 70%);
-  opacity:0;transition:opacity .25s;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%, var(--glow,transparent) 0%,transparent 70%);
+  opacity:0;transition:opacity .3s;pointer-events:none;
 }
-.card:hover{transform:translateY(-6px);border-color:var(--glow-border);box-shadow:0 16px 48px var(--glow-shadow);}
-.card:hover::before{opacity:1;}
+.main-card:hover::before{opacity:1;}
+.main-card:hover{border-color:var(--hover-border);box-shadow:0 8px 32px var(--hover-shadow);}
 
-.card-guide{--glow:rgba(240,201,110,.1);--glow-border:#d4a84b;--glow-shadow:rgba(212,168,75,.2);}
-.card-db   {--glow:rgba(93,173,226,.1); --glow-border:#5dade2;--glow-shadow:rgba(93,173,226,.2);}
-
-.card-icon{font-size:52px;margin-bottom:14px;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,.4));}
-.card-title{font-size:1.3rem;font-weight:800;margin-bottom:8px;}
-.card-guide .card-title{color:var(--gold2);}
-.card-db .card-title{color:#5dade2;}
-.card-desc{font-size:13px;color:var(--muted2);line-height:1.7;margin-bottom:18px;}
-
-.card-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:20px;}
-.tag{
-  font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted2);
+.main-card-guide{
+  --glow:rgba(201,153,62,.12);
+  --hover-border:rgba(201,153,62,.5);
+  --hover-shadow:rgba(201,153,62,.08);
+}
+.main-card-db{
+  --glow:rgba(95,163,216,.1);
+  --hover-border:rgba(95,163,216,.4);
+  --hover-shadow:rgba(95,163,216,.07);
 }
 
-.btn{
-  display:inline-block;width:100%;padding:11px 0;border-radius:10px;
-  font-family:inherit;font-size:14px;font-weight:700;
-  text-decoration:none;border:none;cursor:pointer;transition:opacity .2s;
+.mc-top{display:flex;align-items:flex-start;gap:14px;}
+.mc-icon{
+  width:48px;height:48px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
 }
-.card-guide .btn{background:linear-gradient(135deg,#d4a84b,#f0c96e);color:#1a0e00;}
-.card-db .btn   {background:linear-gradient(135deg,#2471a3,#5dade2);color:#fff;}
-.btn:hover{opacity:.88;}
+.main-card-guide .mc-icon{background:rgba(201,153,62,.12);}
+.main-card-db    .mc-icon{background:rgba(95,163,216,.12);}
+.mc-info h3{font-size:15px;font-weight:700;margin-bottom:3px;}
+.main-card-guide h3{color:var(--gold2);}
+.main-card-db    h3{color:var(--blue2);}
+.mc-info p{font-size:12px;color:var(--muted2);font-family:'Sarabun',sans-serif;}
 
-/* STATS ROW */
-.stats{
-  display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
-  margin-top:4px;
+.mc-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.mc-tag{
+  font-size:10px;font-weight:600;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  color:var(--muted2);
+  padding:2px 7px;border-radius:4px;
 }
-.stat{
-  background:rgba(255,255,255,.04);border:1px solid var(--border);
-  border-radius:8px;padding:8px 18px;text-align:center;
-}
-.stat .v{font-size:17px;font-weight:700;color:var(--gold2);}
-.stat .l{font-size:10px;color:var(--muted);}
 
-/* FOOTER */
-footer{margin-top:40px;font-size:12px;color:var(--muted);text-align:center;line-height:2;}
-footer a{color:var(--muted2);text-decoration:none;}
-footer a:hover{color:var(--gold2);}
+.mc-btn{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;border-radius:var(--radius);
+  font-size:13px;font-weight:700;
+  text-decoration:none;
+  transition:opacity .15s;
+}
+.mc-btn:hover{opacity:.85;}
+.main-card-guide .mc-btn{background:rgba(201,153,62,.15);color:var(--gold2);border:1px solid rgba(201,153,62,.25);}
+.main-card-db    .mc-btn{background:rgba(95,163,216,.12);color:var(--blue2); border:1px solid rgba(95,163,216,.22);}
+
+/* ── Browse grid ── */
+.browse-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+@media(max-width:800px){.browse-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:420px){.browse-grid{grid-template-columns:1fr;}}
+
+.browse-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px 16px;
+  text-decoration:none;
+  color:var(--text);
+  display:flex;flex-direction:column;gap:6px;
+  transition:border-color .15s,background .15s;
+}
+.browse-card:hover{
+  border-color:var(--border2);
+  background:var(--bg3);
+}
+.bc-top{display:flex;align-items:center;gap:8px;}
+.bc-icon{
+  width:32px;height:32px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.bc-name{font-size:13px;font-weight:700;color:var(--text);}
+.bc-count{
+  font-size:19px;font-weight:800;color:var(--text);
+  font-variant-numeric:tabular-nums;
+}
+.bc-desc{font-size:11px;color:var(--muted2);font-family:'Sarabun',sans-serif;line-height:1.5;}
+.bc-more{
+  font-size:10px;font-weight:600;letter-spacing:.5px;
+  color:var(--muted);text-transform:uppercase;
+  margin-top:auto;
+  display:flex;align-items:center;gap:4px;
+}
+.bc-more::after{content:'→';font-size:11px;}
+
+/* Category section title */
+.cat-label{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;
+}
+.cat-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* ── Feature row (horizontal) ── */
+.feature-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+@media(max-width:600px){.feature-row{grid-template-columns:1fr;}}
+
+.feature-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px;
+  display:flex;gap:12px;
+  align-items:flex-start;
+}
+.feat-icon{
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.feat-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.feat-desc{font-size:12px;color:var(--muted2);font-family:'Sarabun',sans-serif;line-height:1.55;}
+
+/* ── Announcement banner ── */
+.announce{
+  background:rgba(201,153,62,.06);
+  border:1px solid rgba(201,153,62,.2);
+  border-radius:var(--radius);
+  padding:12px 16px;
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;color:var(--muted2);
+  font-family:'Sarabun',sans-serif;
+  margin-bottom:8px;
+}
+.announce strong{color:var(--gold2);}
+.announce-icon{font-size:16px;flex-shrink:0;}
+
+/* ── Footer ── */
+footer{
+  border-top:1px solid var(--border);
+  padding:24px 20px;
+  margin-top:0;
+}
+.footer-inner{
+  max-width:1080px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-left{font-size:12px;color:var(--muted);}
+.footer-left a{color:var(--muted2);text-decoration:none;}
+.footer-left a:hover{color:var(--gold2);}
+.footer-right{display:flex;gap:16px;}
+.footer-right a{font-size:12px;color:var(--muted);text-decoration:none;}
+.footer-right a:hover{color:var(--text);}
+
+/* Color accents per category */
+.c-weapon {background:rgba(192,57,43,.12);color:#e87a6a;}
+.c-armor  {background:rgba(95,163,216,.12);color:var(--blue2);}
+.c-food   {background:rgba(61,171,118,.12);color:var(--green2);}
+.c-mat    {background:rgba(201,153,62,.12);color:var(--gold2);}
+.c-build  {background:rgba(142,82,184,.12);color:#a87ad8;}
+.c-boss   {background:rgba(192,57,43,.15);color:#ff7a6a;}
+.c-god    {background:rgba(201,153,62,.15);color:var(--gold3);}
+.c-class  {background:rgba(95,163,216,.12);color:#7ab8e0;}
+.c-biome  {background:rgba(61,171,118,.12);color:#5dcc96;}
+.c-skill  {background:rgba(142,82,184,.12);color:#b090e0;}
+.c-citizen{background:rgba(201,153,62,.1);color:#d4aa5e;}
+.c-recipe {background:rgba(46,204,113,.1);color:#55d08a;}
+.c-spell  {background:rgba(124,82,184,.12);color:#b090e8;}
+.c-raid   {background:rgba(192,57,43,.12);color:#ff8a7a;}
+
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="logo">🏛️</div>
-  <div class="title">ROMESTEAD</div>
-  <div class="subtitle">คู่มือภาษาไทย–อังกฤษ · Thai & English Guide</div>
-  <div class="divider"></div>
+<!-- ── TOPNAV ── -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="nav-brand" href="index.html">
+      <span>🏛️</span>
+      <span>ROMESTEAD<span class="dot">.</span>TH</span>
+    </a>
+    <div class="nav-links">
+      <a href="Romestead.html">📖 Guide</a>
+      <a href="RomesteadDB.html">🗃️ Database</a>
+    </div>
+    <span class="nav-badge">Early Access 2026</span>
+  </div>
+</nav>
 
-  <div class="cards">
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">🏛️ Unofficial Thai–English Reference</div>
+    <h1 class="hero-title">คู่มือ<span>ROMESTEAD</span><br>ฉบับภาษาไทย</h1>
+    <p class="hero-sub">คู่มือครบจบ + ฐานข้อมูลไอเทม 555+ ชิ้น พร้อม Boss Guide, God System, Layout Planning ครบทุก System</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="Romestead.html">📖 เปิดคู่มือเกม</a>
+      <a class="btn-secondary" href="RomesteadDB.html">🗃️ Item Database</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="v">555+</div><div class="l">Items</div></div>
+      <div class="hstat"><div class="v">4</div><div class="l">Bosses</div></div>
+      <div class="hstat"><div class="v">7</div><div class="l">Gods</div></div>
+      <div class="hstat"><div class="v">8</div><div class="l">Classes</div></div>
+      <div class="hstat"><div class="v">4</div><div class="l">Biomes</div></div>
+    </div>
+  </div>
+</section>
 
-    <!-- GUIDE -->
-    <a class="card card-guide" href="Romestead.html">
-      <span class="card-icon">📖</span>
-      <div class="card-title">คู่มือเกม / Game Guide</div>
-      <div class="card-desc">
-        ข้อมูลครบทุก System ในเกม<br>
-        Class, Biomes, Bosses, Gods, Combat, Co-op และอีกมาก
+<!-- ── PAGE ── -->
+<div class="page">
+
+  <!-- ANNOUNCE -->
+  <div class="sec-label">ข่าวล่าสุด</div>
+  <div class="announce">
+    <span class="announce-icon">🔥</span>
+    <div><strong>Early Access Launch</strong> — Romestead เปิดตัว Early Access บน Steam วันที่ 26 พ.ค. 2026 · มี 4 Biome, 4 Boss, 7 Gods รองรับ Co-op 1–8 คน · ข้อมูลอัพเดตตาม Patch ล่าสุด</div>
+  </div>
+
+  <!-- MAIN CTA CARDS -->
+  <div class="sec-label">ไปที่ไหน</div>
+  <div class="main-cards">
+
+    <a class="main-card main-card-guide" href="Romestead.html">
+      <div class="mc-top">
+        <div class="mc-icon">📖</div>
+        <div class="mc-info">
+          <h3>คู่มือเกม (Game Guide)</h3>
+          <p>ครบทุก System · อ่านแล้วบรรลุเลย</p>
+        </div>
       </div>
-      <div class="card-tags">
-        <span class="tag">8 Class</span>
-        <span class="tag">4 Biomes</span>
-        <span class="tag">4 Bosses</span>
-        <span class="tag">7 Gods</span>
-        <span class="tag">Combat</span>
-        <span class="tag">Co-op</span>
-        <span class="tag">Tips</span>
+      <div class="mc-tags">
+        <span class="mc-tag">8 Class</span>
+        <span class="mc-tag">4 Bosses</span>
+        <span class="mc-tag">7 Gods</span>
+        <span class="mc-tag">Town Layout</span>
+        <span class="mc-tag">Defense</span>
+        <span class="mc-tag">Combat</span>
+        <span class="mc-tag">Automation</span>
+        <span class="mc-tag">Co-op</span>
+        <span class="mc-tag">Gear Tiers</span>
+        <span class="mc-tag">Build Order</span>
       </div>
-      <span class="btn">เปิดคู่มือ →</span>
+      <a class="mc-btn" href="Romestead.html">
+        <span>เปิดคู่มือ Ultimate Guide</span>
+        <span>→</span>
+      </a>
     </a>
 
-    <!-- DATABASE -->
-    <a class="card card-db" href="RomesteadDB.html">
-      <span class="card-icon">🗃️</span>
-      <div class="card-title">Item Database</div>
-      <div class="card-desc">
-        ฐานข้อมูลไอเทมทั้งหมด 555 ชิ้น<br>
-        พร้อม Icon · ราคา · Tier · Craft Station
+    <a class="main-card main-card-db" href="RomesteadDB.html">
+      <div class="mc-top">
+        <div class="mc-icon">🗃️</div>
+        <div class="mc-info">
+          <h3>Item Database</h3>
+          <p>ค้นหา Filter ครบ · ราคา Tier Craft Station</p>
+        </div>
       </div>
-      <div class="card-tags">
-        <span class="tag">⚔️ 108 Weapons</span>
-        <span class="tag">🛡️ 209 Equipment</span>
-        <span class="tag">🍖 88 Food</span>
-        <span class="tag">⚗️ 75 Materials</span>
-        <span class="tag">🌱 Seeds</span>
-        <span class="tag">Search & Filter</span>
+      <div class="mc-tags">
+        <span class="mc-tag">⚔️ 108 Weapons</span>
+        <span class="mc-tag">🛡️ 209 Equipment</span>
+        <span class="mc-tag">🍖 88 Food</span>
+        <span class="mc-tag">⚗️ 75 Materials</span>
+        <span class="mc-tag">🌱 Seeds</span>
+        <span class="mc-tag">Search & Filter</span>
+        <span class="mc-tag">Icon CDN</span>
       </div>
-      <span class="btn">เปิด Database →</span>
+      <a class="mc-btn" href="RomesteadDB.html">
+        <span>เปิด Item Database</span>
+        <span>→</span>
+      </a>
     </a>
 
   </div>
 
-  <div class="stats">
-    <div class="stat"><div class="v">555</div><div class="l">Items</div></div>
-    <div class="stat"><div class="v">8</div><div class="l">Categories</div></div>
-    <div class="stat"><div class="v">Tier I–V</div><div class="l">Rarity</div></div>
-    <div class="stat"><div class="v">ไทย–EN</div><div class="l">Bilingual</div></div>
+  <!-- BROWSE: ITEMS -->
+  <div class="sec-label">ไอเทม & สูตร</div>
+
+  <div class="cat-label">Item Categories</div>
+  <div class="browse-grid" style="margin-bottom:20px;">
+
+    <a class="browse-card" href="RomesteadDB.html#weapons">
+      <div class="bc-top">
+        <div class="bc-icon c-weapon">⚔️</div>
+        <div class="bc-name">Weapons</div>
+      </div>
+      <div class="bc-count">108</div>
+      <div class="bc-desc">Swords, Spears, Bows, Scrolls, Shields — ทุก Tier ตั้งแต่ Flint ถึง Boss-drop</div>
+      <div class="bc-more">ดูทั้งหมด</div>
+    </a>
+
+    <a class="browse-card" href="RomesteadDB.html#equipment">
+      <div class="bc-top">
+        <div class="bc-icon c-armor">🛡️</div>
+        <div class="bc-name">Equipment</div>
+      </div>
+      <div class="bc-count">209</div>
+      <div class="bc-desc">Armor, Helmets, Boots, Relics — Feathered, Tectonic, Firescale Sets</div>
+      <div class="bc-more">ดูทั้งหมด</div>
+    </a>
+
+    <a class="browse-card" href="RomesteadDB.html#food">
+      <div class="bc-top">
+        <div class="bc-icon c-food">🍖</div>
+        <div class="bc-name">Food</div>
+      </div>
+      <div class="bc-count">88</div>
+      <div class="bc-desc">Bread, Meat, Garum, Wine — Buff แต่ละชนิด HP/ATK/SPD</div>
+      <div class="bc-more">ดูทั้งหมด</div>
+    </a>
+
+    <a class="browse-card" href="RomesteadDB.html#materials">
+      <div class="bc-top">
+        <div class="bc-icon c-mat">⚗️</div>
+        <div class="bc-name">Materials</div>
+      </div>
+      <div class="bc-count">75</div>
+      <div class="bc-desc">Copper, Bronze, Iron, Cloth — วัตถุดิบทุกชนิดพร้อมแหล่งที่มา</div>
+      <div class="bc-more">ดูทั้งหมด</div>
+    </a>
+
   </div>
 
-</div>
+  <!-- BROWSE: WORLD & CHARACTERS -->
+  <div class="cat-label">World & Characters</div>
+  <div class="browse-grid" style="margin-bottom:20px;">
 
+    <a class="browse-card" href="Romestead.html#bosses">
+      <div class="bc-top">
+        <div class="bc-icon c-boss">💀</div>
+        <div class="bc-name">Bosses</div>
+      </div>
+      <div class="bc-count">4</div>
+      <div class="bc-desc">Guardian of Minerva · Pyzifax · Cyclops · Great Phoenix — HP, Drop, กลยุทธ์</div>
+      <div class="bc-more">Boss Guide</div>
+    </a>
+
+    <a class="browse-card" href="Romestead.html#gods">
+      <div class="bc-top">
+        <div class="bc-icon c-god">🏺</div>
+        <div class="bc-name">Gods & Worship</div>
+      </div>
+      <div class="bc-count">7</div>
+      <div class="bc-desc">Minerva, Ceres, Mars, Diana, Mercury, Venus, Vulcanus — Offering & Unlock</div>
+      <div class="bc-more">God Guide</div>
+    </a>
+
+    <a class="browse-card" href="Romestead.html#class">
+      <div class="bc-top">
+        <div class="bc-icon c-class">🧑</div>
+        <div class="bc-name">Starting Classes</div>
+      </div>
+      <div class="bc-count">8</div>
+      <div class="bc-desc">Scholar, Legionary, Gladiator, Phalanx, Lobber, Woodcutter, Miner, Mechanicus</div>
+      <div class="bc-more">เปรียบเทียบ Class</div>
+    </a>
+
+    <a class="browse-card" href="Romestead.html#biomes">
+      <div class="bc-top">
+        <div class="bc-icon c-biome">🗺️</div>
+        <div class="bc-name">Biomes</div>
+      </div>
+      <div class="bc-count">4</div>
+      <div class="bc-desc">Plains → Forest → Desert → Volcanic — ทรัพยากร, ศัตรู, เงื่อนไขเข้า</div>
+      <div class="bc-more">Biome Guide</div>
+    </a>
+
+    <a class="browse-card" href="Romestead.html#citizens">
+      <div class="bc-top">
+        <div class="bc-icon c-citizen">👥</div>
+        <div class="bc-name">Citizens & Traits</div>
+      </div>
+      <div class="bc-count">—</div>
+      <div class="bc-desc">Perk ที่ดี/ห้ามเลือก · Gluttonous, Disloyal · Assign ผ่าน Town Flag</div>
+      <div class="bc-more">Citizen Guide</div>
+    </a>
+
+    <a class="browse-card" href="Romestead.html#defense">
+      <div class="bc-top">
+        <div class="bc-icon c-raid">🏰</div>
+        <div class="bc-name">Raids & Defense</div>
+      </div>
+      <div class="bc-count">—</div>
+      <div class="bc-desc">Coal Trap, Catapult, Auto Scorpio, Barricade — แผนป้องกัน Raid กลางคืน</div>
+      <div class="bc-more">Defense Guide</div>
+    </a>
+
+    <a class="browse-card" href="Romestead.html#combat">
+      <div class="bc-top">
+        <div class="bc-icon c-spell">📜</div>
+        <div class="bc-name">Spells & Combat</div>
+      </div>
+      <div class="bc-count">—</div>
+      <div class="bc-desc">Scroll, Bolt, Ray of Frost — Dodge, Heavy Attack, Charged Shot</div>
+      <div class="bc-more">Combat Guide</div>
+    </a>
+
+    <a class="browse-card" href="Romestead.html#automation">
+      <div class="bc-top">
+        <div class="bc-icon c-recipe">⚙️</div>
+        <div class="bc-name">Automation</div>
+      </div>
+      <div class="bc-count">—</div>
+      <div class="bc-desc">Cart → Logistics Tent · Trade Route · Quarry · Auto Scorpio · Farmstead</div>
+      <div class="bc-more">Automation Guide</div>
+    </a>
+
+  </div>
+
+  <!-- FEATURES ROW -->
+  <div class="sec-label">ทำไมต้องอ่านที่นี่</div>
+  <div class="feature-row">
+    <div class="feature-card">
+      <div class="feat-icon" style="background:rgba(201,153,62,.12);">🇹🇭</div>
+      <div>
+        <div class="feat-title">ภาษาไทยครบ</div>
+        <div class="feat-desc">อธิบายทุก System เป็นภาษาไทย ไม่ต้องเดา เข้าใจง่าย ข้อมูลครบถ้วน</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon" style="background:rgba(95,163,216,.12);">🗃️</div>
+      <div>
+        <div class="feat-title">Database 555+ ไอเทม</div>
+        <div class="feat-desc">ค้นหา Filter พร้อม Icon จาก MetaForge CDN · ราคา Tier Craft Station ครบ</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon" style="background:rgba(61,171,118,.12);">🔄</div>
+      <div>
+        <div class="feat-title">อัพเดตตาม Patch</div>
+        <div class="feat-desc">Early Access 2026 · ข้อมูลจาก Multiple Sources ตรวจสอบแล้ว · Patch Aware</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="sec-label">Guide Sections</div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;padding-bottom:8px;">
+    <a href="Romestead.html#overview"   style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;transition:all .15s;" onmouseover="this.style.borderColor='var(--border2)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">📖 Overview</span></a>
+    <a href="Romestead.html#class"      style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🧑 8 Classes</span></a>
+    <a href="Romestead.html#firstday"   style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🌅 Day 1 Build Order</span></a>
+    <a href="Romestead.html#layout"     style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🏛️ Town Layout</span></a>
+    <a href="Romestead.html#biomes"     style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🗺️ 4 Biomes</span></a>
+    <a href="Romestead.html#bosses"     style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">💀 All Bosses</span></a>
+    <a href="Romestead.html#gear"       style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🛡️ Gear Tiers</span></a>
+    <a href="Romestead.html#gods"       style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🏺 7 Gods</span></a>
+    <a href="Romestead.html#citizens"   style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">👥 Citizens</span></a>
+    <a href="Romestead.html#food"       style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🌾 Food</span></a>
+    <a href="Romestead.html#defense"    style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🏰 Defense</span></a>
+    <a href="Romestead.html#combat"     style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">⚔️ Combat</span></a>
+    <a href="Romestead.html#automation" style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">⚙️ Automation</span></a>
+    <a href="Romestead.html#coop"       style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">🤝 Co-op</span></a>
+    <a href="Romestead.html#tips"       style="text-decoration:none;"><span style="background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;display:inline-block;">💡 Pro Tips</span></a>
+  </div>
+
+</div><!-- /page -->
+
+<!-- ── FOOTER ── -->
 <footer>
-  ข้อมูลจาก <a href="https://metaforge.app/romestead" target="_blank">MetaForge.app</a> ·
-  Romestead Early Access 2026<br>
-  ข้อมูลอาจเปลี่ยนแปลงตาม Game Update
+  <div class="footer-inner">
+    <div class="footer-left">
+      ข้อมูลจาก <a href="https://metaforge.app/romestead" target="_blank">MetaForge.app</a> ·
+      <a href="https://totalromestead.com" target="_blank">TotalRomestead.com</a> ·
+      Romestead Early Access 2026 · Unofficial Fan Reference
+    </div>
+    <div class="footer-right">
+      <a href="Romestead.html">Guide</a>
+      <a href="RomesteadDB.html">Database</a>
+    </div>
+  </div>
 </footer>
+
 </body>
 </html>
